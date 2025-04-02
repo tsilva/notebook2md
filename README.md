@@ -44,9 +44,7 @@ Clone the repository and install using Hatch:
 ```bash
 git clone https://github.com/tsilva/notebook2md.git
 cd notebook2md
-pip install hatch
-hatch build
-pip install dist/*.whl
+pipx install .
 ```
 
 ## Usage
@@ -74,28 +72,6 @@ Example:
 <-- START:1:code -->
 print("This is a code cell")
 <-- END:1:code -->
-```
-
-## Development
-
-### Publishing to PyPI
-
-To release a new version to PyPI:
-
-1. Update the version in `notebook2md/__init__.py` and `pyproject.toml`
-2. Build the package:
-   ```bash
-   hatch build
-   ```
-3. Upload to PyPI (requires PyPI credentials):
-   ```bash
-   hatch publish
-   ```
-
-Alternatively, you can use twine:
-```bash
-pip install twine
-python -m twine upload dist/*
 ```
 
 ## License
