@@ -4,9 +4,9 @@ build-backend = "hatchling.build"
 
 [project]
 name = "notebook2md"
-version = "0.1.0"
+version = "0.2.0"
 authors = [
-    {name = "tsilva", email = "example@example.com"},
+    {name = "tsilva", email = "eng.tiago.silva@gmail.com"},
 ]
 description = "Converts Jupyter Notebooks to Markdown with cell delimiters"
 readme = "README.md"
