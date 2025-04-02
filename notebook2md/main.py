@@ -11,6 +11,7 @@ import os
 import nbformat
 from nbconvert import MarkdownExporter
 from nbconvert.preprocessors import Preprocessor
+import pyperclip
 
 
 class InjectCellDelimiters(Preprocessor):
@@ -65,13 +66,25 @@ def main():
         description="Convert a Jupyter Notebook (.ipynb) to Markdown with cell delimiters and print to stdout."
     )
     parser.add_argument("notebook_path", help="Path to the input .ipynb notebook file.")
+    parser.add_argument("-c", "--clipboard", action="store_true", 
+                        help="Copy the output to clipboard instead of printing to stdout")
     args = parser.parse_args()
 
     markdown_content = convert_notebook_to_markdown(args.notebook_path)
 
     if markdown_content is not None:
-        print(markdown_content)
-        sys.exit(0)
+        if args.clipboard:
+            try:
+                pyperclip.copy(markdown_content)
+                print(f"Markdown content from {args.notebook_path} copied to clipboard.", file=sys.stderr)
+                sys.exit(0)
+            except Exception as e:
+                print(f"Error copying to clipboard: {e}", file=sys.stderr)
+                print(markdown_content)
+                sys.exit(1)
+        else:
+            print(markdown_content)
+            sys.exit(0)
     else:
         sys.exit(1)
 
