@@ -1,54 +1,20 @@
-# notebook2md
+# 📓 notebook2md
 
-<p align="center">
-  <img src="logo.png" alt="notebook2md" width="400"/>
-</p>
+🔄 Convert Jupyter Notebooks to Markdown with cell delimiters and structure preservation
 
-A lightweight utility to convert Jupyter Notebooks (.ipynb) to Markdown format with cell delimiters.
+## 📖 Overview
 
-## Description
+notebook2md is a lightweight command-line tool that converts Jupyter Notebook (.ipynb) files to Markdown format while preserving cell structure information. It adds special delimiter comments to mark the beginning and end of each cell, making it easier to track and identify different cells in the exported Markdown content.
 
-notebook2md is a simple command-line tool that converts Jupyter Notebook files to Markdown format while preserving cell structure information using delimiter comments. This makes it easier to track and identify different cells when working with the exported Markdown content.
+The tool is perfect for documentation workflows, version control of notebook content, or any scenario where you need a plain text representation of your notebooks with cell structure intact.
 
-## Features
-
-- Converts Jupyter Notebooks to Markdown
-- Adds distinct delimiters for code and markdown cells
-- Preserves cell numbering and type information
-- Simple command-line interface
-- Optional clipboard support for direct pasting
-
-## Installation
-
-### Using pipx (recommended)
-
-For a clean, isolated installation that doesn't affect your global Python environment:
+## 🚀 Installation
 
 ```bash
-# Install the latest published version
-pipx install notebook2md
-
-# Or install from your local clone
-pipx install .
+pipx install . --force
 ```
 
-### Using pip
-
-```bash
-pip install notebook2md
-```
-
-### Development installation
-
-Clone the repository and install using Hatch:
-
-```bash
-git clone https://github.com/tsilva/notebook2md.git
-cd notebook2md
-pipx install .
-```
-
-## Usage
+## 🛠️ Usage
 
 After installation, you can use notebook2md directly from the command line:
 
@@ -57,12 +23,10 @@ After installation, you can use notebook2md directly from the command line:
 notebook2md path/to/your/notebook.ipynb > output.md
 
 # Copy directly to clipboard
-notebook2md -c path/to/your/notebook.ipynb
-# or
 notebook2md --clipboard path/to/your/notebook.ipynb
+# or shorter form
+notebook2md -c path/to/your/notebook.ipynb
 ```
-
-The tool prints the converted Markdown to stdout by default, allowing you to redirect it to a file or pipe it to another command. With the clipboard option, you can directly paste the output wherever needed.
 
 ### Output Format
 
@@ -81,6 +45,6 @@ print("This is a code cell")
 <-- END:1:code -->
 ```
 
-## License
+## 📄 License
 
-MIT
+This project is licensed under the [MIT License](LICENSE).
