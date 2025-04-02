@@ -16,6 +16,7 @@ notebook2md is a simple command-line tool that converts Jupyter Notebook files t
 - Adds distinct delimiters for code and markdown cells
 - Preserves cell numbering and type information
 - Simple command-line interface
+- Optional clipboard support for direct pasting
 
 ## Installation
 
@@ -52,10 +53,16 @@ pipx install .
 After installation, you can use notebook2md directly from the command line:
 
 ```bash
+# Output to stdout (can be redirected to a file)
 notebook2md path/to/your/notebook.ipynb > output.md
+
+# Copy directly to clipboard
+notebook2md -c path/to/your/notebook.ipynb
+# or
+notebook2md --clipboard path/to/your/notebook.ipynb
 ```
 
-The tool prints the converted Markdown to stdout, allowing you to redirect it to a file or pipe it to another command.
+The tool prints the converted Markdown to stdout by default, allowing you to redirect it to a file or pipe it to another command. With the clipboard option, you can directly paste the output wherever needed.
 
 ### Output Format
 
