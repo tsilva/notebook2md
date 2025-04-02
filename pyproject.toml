@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "notebook2md"
+version = "0.1.0"
+authors = [
+    {name = "tsilva", email = "example@example.com"},
+]
+description = "Converts Jupyter Notebooks to Markdown with cell delimiters"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "nbformat",
+    "nbconvert",
+]
+
+[project.scripts]
+notebook2md = "notebook2md.main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["notebook2md"]
