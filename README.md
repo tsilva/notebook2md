@@ -1,12 +1,17 @@
 # 📓 notebook2md
 
+<p align="center">
+  <img src="logo.jpg" alt="Logo" width="400"/>
+</p>
+
+
 🔄 Convert Jupyter Notebooks to Markdown with cell delimiters and structure preservation
 
 ## 📖 Overview
 
 notebook2md is a lightweight command-line tool that converts Jupyter Notebook (.ipynb) files to Markdown format while preserving cell structure information. It adds special delimiter comments to mark the beginning and end of each cell, making it easier to track and identify different cells in the exported Markdown content.
 
-The tool is perfect for documentation workflows, version control of notebook content, or any scenario where you need a plain text representation of your notebooks with cell structure intact.
+Perfect for documentation workflows, version control of notebook content, or any scenario where you need a plain text representation of your notebooks with cell structure intact.
 
 ## 🚀 Installation
 
