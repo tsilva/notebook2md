@@ -19,19 +19,39 @@ notebook2md is a simple command-line tool that converts Jupyter Notebook files t
 
 ## Installation
 
-You can install notebook2md using the provided installation script:
+### Using pipx (recommended)
+
+For a clean, isolated installation that doesn't affect your global Python environment:
 
 ```bash
-./install.sh
+# Install the latest published version
+pipx install notebook2md
+
+# Or install from your local clone
+pipx install .
 ```
 
-Or manually install the required dependencies:
+### Using pip
 
 ```bash
-pip install nbformat nbconvert
+pip install notebook2md
+```
+
+### Development installation
+
+Clone the repository and install using Hatch:
+
+```bash
+git clone https://github.com/tsilva/notebook2md.git
+cd notebook2md
+pip install hatch
+hatch build
+pip install dist/*.whl
 ```
 
 ## Usage
+
+After installation, you can use notebook2md directly from the command line:
 
 ```bash
 notebook2md path/to/your/notebook.ipynb > output.md
@@ -54,6 +74,28 @@ Example:
 <-- START:1:code -->
 print("This is a code cell")
 <-- END:1:code -->
+```
+
+## Development
+
+### Publishing to PyPI
+
+To release a new version to PyPI:
+
+1. Update the version in `notebook2md/__init__.py` and `pyproject.toml`
+2. Build the package:
+   ```bash
+   hatch build
+   ```
+3. Upload to PyPI (requires PyPI credentials):
+   ```bash
+   hatch publish
+   ```
+
+Alternatively, you can use twine:
+```bash
+pip install twine
+python -m twine upload dist/*
 ```
 
 ## License
