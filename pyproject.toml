@@ -28,3 +28,6 @@ notebook2md = "notebook2md.main:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/notebook2md"]
+
+[tool.hatch.build]
+include = ["src/notebook2md/configs/.env.example"]

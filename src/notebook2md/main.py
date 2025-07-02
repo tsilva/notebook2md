@@ -37,7 +37,8 @@ def setup_env():
     CONFIG_DIR.mkdir(parents=True, exist_ok=True)
     if not ENV_PATH.exists():
         try:
-            shutil.copy(Path(__file__).parent / "configs" / ".env.example", ENV_PATH)
+            example = Path(__file__).parent / "configs" / ".env.example"
+            shutil.copy(example, ENV_PATH)
             log(GREEN, f"✅ Created default env: {ENV_PATH}")
             print(f"⚠️  Edit with: nano {ENV_PATH}")
         except Exception as e:
