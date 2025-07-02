@@ -15,7 +15,7 @@ import shutil
 # Constants
 CONFIG_DIR = Path.home() / ".repo2readme"
 ENV_PATH = CONFIG_DIR / ".env"
-REQUIRED_VARS = ("MODEL_ID", "OPENROUTER_BASE_URL", "OPENROUTER_API_KEY")
+REQUIRED_VARS = []
 RED, GREEN, RESET = '\033[31m', '\033[32m', '\033[0m'
 
 
