@@ -19,6 +19,11 @@ Perfect for documentation workflows, version control of notebook content, or any
 pipx install . --force
 ```
 
+On first run, the sample configuration at
+`src/notebook2md/configs/.env.example` will be copied to
+`~/.repo2readme/.env`. Update the values inside this file to provide your
+`MODEL_ID` and OpenRouter credentials.
+
 ## 🛠️ Usage
 
 After installation, you can use notebook2md directly from the command line:
