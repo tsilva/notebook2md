@@ -1,46 +1,43 @@
-# 📓 notebook2md
+<div align="center">
+  <img src="logo.png" alt="notebook2md" width="512"/>
 
-<p align="center">
-  <img src="logo.jpg" alt="Logo" width="400"/>
-</p>
+  [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+  [![Python](https://img.shields.io/badge/Python-3.12+-3776ab.svg)](https://python.org)
 
+  **📓 Convert Jupyter Notebooks to Markdown with cell structure preserved ✨**
 
-🔄 Convert Jupyter Notebooks to Markdown with cell delimiters and structure preservation
+</div>
 
-## 📖 Overview
+## Overview
 
-notebook2md is a lightweight command-line tool that converts Jupyter Notebook (.ipynb) files to Markdown format while preserving cell structure information. It adds special delimiter comments to mark the beginning and end of each cell, making it easier to track and identify different cells in the exported Markdown content.
+notebook2md transforms Jupyter Notebook files (.ipynb) into Markdown while preserving cell boundaries with special delimiter comments. Each cell is wrapped with `<-- START:index:type -->` and `<-- END:index:type -->` markers, making it easy to identify and track cell structure in the output.
 
-Perfect for documentation workflows, version control of notebook content, or any scenario where you need a plain text representation of your notebooks with cell structure intact.
+## Features
 
-## 🚀 Installation
+- Preserves cell structure with delimiter markers
+- Supports both code and markdown cells
+- Copy output directly to clipboard with `-c` flag
+- Lightweight with minimal dependencies
 
-```bash
-pipx install . --force
-```
-
-## 🛠️ Usage
-
-After installation, you can use notebook2md directly from the command line:
+## Quick Start
 
 ```bash
-# Output to stdout (can be redirected to a file)
-notebook2md path/to/your/notebook.ipynb > output.md
-
-# Copy directly to clipboard
-notebook2md --clipboard path/to/your/notebook.ipynb
-# or shorter form
-notebook2md -c path/to/your/notebook.ipynb
+pipx install notebook2md
 ```
 
-### Output Format
+```bash
+# Output to stdout
+notebook2md notebook.ipynb > output.md
 
-Each cell in the notebook is wrapped with delimiter comments indicating:
-- Cell index
-- Cell type (code or markdown)
-
-Example:
+# Copy to clipboard
+notebook2md -c notebook.ipynb
 ```
+
+## Output Format
+
+Each cell in the notebook is wrapped with delimiter comments:
+
+```markdown
 <-- START:0:markdown -->
 # This is a markdown cell
 <-- END:0:markdown -->
@@ -50,6 +47,41 @@ print("This is a code cell")
 <-- END:1:code -->
 ```
 
-## 📄 License
+## Installation
+
+### From Source
+
+```bash
+git clone https://github.com/tsilva/notebook2md.git
+cd notebook2md
+pipx install . --force
+```
+
+### Requirements
+
+- Python 3.12+
+- nbformat
+- nbconvert
+- pyperclip (for clipboard support)
+
+## Usage
+
+```bash
+# Basic conversion to stdout
+notebook2md path/to/notebook.ipynb
+
+# Redirect to file
+notebook2md path/to/notebook.ipynb > output.md
+
+# Copy to clipboard
+notebook2md --clipboard path/to/notebook.ipynb
+notebook2md -c path/to/notebook.ipynb
+```
+
+## Contributing
+
+Contributions are welcome! Feel free to open issues or submit pull requests.
+
+## License
 
 This project is licensed under the [MIT License](LICENSE).
