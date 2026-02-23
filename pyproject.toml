@@ -28,3 +28,9 @@ notebook2md = "notebook2md.main:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/notebook2md"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
