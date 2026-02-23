@@ -10,6 +10,8 @@
 
 ## Overview
 
+[![CI](https://github.com/tsilva/notebook2md/actions/workflows/release.yml/badge.svg)](https://github.com/tsilva/notebook2md/actions/workflows/release.yml)
+
 notebook2md transforms Jupyter Notebook files (.ipynb) into Markdown while preserving cell boundaries with special delimiter comments. Each cell is wrapped with `<-- START:index:type -->` and `<-- END:index:type -->` markers, making it easy to identify and track cell structure in the output.
 
 ## Features
