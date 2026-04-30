@@ -8,7 +8,7 @@ version = "0.1.0"
 authors = [
   { name = "Tiago Silva" }
 ]
-description = "A utility for managing and organizing notes"
+description = "Convert Jupyter Notebooks to Markdown with cell delimiters"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
@@ -21,7 +21,7 @@ classifiers = [
   "Programming Language :: Python :: 3",
   "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent"
-]1
+]
 
 [project.scripts]
 notebook2md = "notebook2md.main:main"
