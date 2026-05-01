@@ -13,9 +13,11 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
   "pyperclip",
-  "python-dotenv",
+  "python-dotenv>=1.2.2",
   "nbformat",
-  "nbconvert"
+  "nbconvert>=7.17.1",
+  "pygments>=2.20.0",
+  "tornado>=6.5.5"
 ]
 classifiers = [
   "Programming Language :: Python :: 3",
