@@ -2,7 +2,13 @@ name: Release
 on:
   push:
     branches: [main]
-    paths: [pyproject.toml]
+    paths:
+      - pyproject.toml
+      - uv.lock
+      - src/**
+      - tests/**
+      - .github/workflows/release.yml
+  workflow_dispatch:
 permissions:
   contents: write
   id-token: write
@@ -11,10 +17,22 @@ concurrency:
   cancel-in-progress: false
 jobs:
   test:
-    uses: tsilva/.github/.github/workflows/test.yml@main
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - uses: astral-sh/setup-uv@v7
+        with:
+          cache: true
+      - run: uv sync
+      - run: uv run --with pytest pytest
 
   publish:
     needs: [test]
+    if: contains(github.event.head_commit.added, 'pyproject.toml') || contains(github.event.head_commit.modified, 'pyproject.toml') || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     environment: pypi
@@ -41,6 +59,6 @@ jobs:
         run: gh release create "${{ steps.check-version.outputs.tag }}" --title "${{ steps.check-version.outputs.tag }}" --generate-notes dist/*
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Publish to PyPI
-        if: steps.check-version.outputs.tag_exists == 'false'
+      - name: Publish to PyPI if enabled
+        if: steps.check-version.outputs.tag_exists == 'false' && vars.PUBLISH_TO_PYPI == 'true'
         uses: pypa/gh-action-pypi-publish@release/v1
