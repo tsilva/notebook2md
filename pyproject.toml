@@ -17,7 +17,7 @@ dependencies = [
   "nbformat",
   "nbconvert>=7.17.1",
   "pygments>=2.20.0",
-  "tornado>=6.5.5"
+  "tornado>=6.5.7"
 ]
 classifiers = [
   "Programming Language :: Python :: 3",
