@@ -2,12 +2,14 @@
 # -*- coding: utf-8 -*-
 
 """
-Converts a Jupyter Notebook (.ipynb) file to Markdown format with cell delimiters and prints to stdout.
+Converts a Jupyter Notebook (.ipynb) file to Markdown format with cell delimiters
+and prints to stdout.
 """
 
-import sys
 import argparse
 import os
+import sys
+
 import nbformat
 from nbconvert import MarkdownExporter
 from nbconvert.preprocessors import Preprocessor
@@ -35,7 +37,8 @@ class InjectCellDelimiters(Preprocessor):
 
 def convert_notebook_to_markdown(notebook_path):
     """
-    Reads an .ipynb file, converts it to Markdown with cell delimiters, and returns the Markdown content.
+    Reads an .ipynb file, converts it to Markdown with cell delimiters, and returns
+    the Markdown content.
     """
     try:
         if not os.path.isfile(notebook_path):
@@ -45,7 +48,7 @@ def convert_notebook_to_markdown(notebook_path):
         exporter = MarkdownExporter()
         exporter.register_preprocessor(InjectCellDelimiters, enabled=True)
 
-        with open(notebook_path, 'r', encoding='utf-8') as f:
+        with open(notebook_path, "r", encoding="utf-8") as f:
             notebook_node = nbformat.read(f, as_version=4)
 
         (markdown_output, _) = exporter.from_notebook_node(notebook_node)
@@ -62,7 +65,10 @@ def convert_notebook_to_markdown(notebook_path):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Convert a Jupyter Notebook (.ipynb) to Markdown with cell delimiters and print to stdout."
+        description=(
+            "Convert a Jupyter Notebook (.ipynb) to Markdown with cell delimiters "
+            "and print to stdout."
+        )
     )
     parser.add_argument("notebook_path", help="Path to the input .ipynb notebook file.")
     args = parser.parse_args()

@@ -1,30 +1,37 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import sys
-import os
 import argparse
+import os
+import shutil
+import sys
+from pathlib import Path
+
 import nbformat
+import pyperclip
+from dotenv import load_dotenv
 from nbconvert import MarkdownExporter
 from nbconvert.preprocessors import Preprocessor
-from pathlib import Path
-from dotenv import load_dotenv
-import pyperclip
-import shutil
 
 # Constants
 CONFIG_DIR = Path.home() / ".repo2readme"
 ENV_PATH = CONFIG_DIR / ".env"
 REQUIRED_VARS = []
-RED, GREEN, RESET = '\033[31m', '\033[32m', '\033[0m'
+RED, GREEN, RESET = "\033[31m", "\033[32m", "\033[0m"
 
 
-def log(color, msg): print(f"{color}{msg}{RESET}")
-def fatal(msg): log(RED, msg); sys.exit(1)
+def log(color, msg):
+    print(f"{color}{msg}{RESET}")
+
+
+def fatal(msg):
+    log(RED, msg)
+    sys.exit(1)
 
 
 class InjectCellDelimiters(Preprocessor):
     """Add START/END comments around each code or markdown cell."""
+
     def preprocess_cell(self, cell, resources, index):
         if cell.cell_type in ("code", "markdown"):
             marker = f"<-- {{}}:{index}:{cell.cell_type} -->"
@@ -55,7 +62,7 @@ def convert_notebook(path):
         fatal(f"❌ File not found: {path}")
 
     try:
-        with open(path, 'r', encoding='utf-8') as f:
+        with open(path, "r", encoding="utf-8") as f:
             notebook = nbformat.read(f, as_version=4)
         exporter = MarkdownExporter()
         exporter.register_preprocessor(InjectCellDelimiters, enabled=True)
