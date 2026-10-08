@@ -1,8 +1,10 @@
-<div align="center">
+<p align="center">
   <img src="https://raw.githubusercontent.com/tsilva/notebook2md/main/logo.png" alt="notebook2md" width="512"/>
-
-  **📓 Convert Jupyter Notebooks to Markdown with cell structure preserved ✨**
-</div>
+  <br />
+  <!-- repo-tagline:start -->
+  <strong>📓 Convert Jupyter Notebooks to Markdown with cell structure preserved ✨</strong>
+  <!-- repo-tagline:end -->
+</p>
 
 notebook2md is a small Python CLI that converts Jupyter Notebook files (`.ipynb`) into Markdown. It keeps notebook cell boundaries visible by wrapping each code and markdown cell with delimiter comments.
 
