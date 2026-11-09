@@ -643,12 +643,12 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "nbconvert", specifier = ">=7.17.1" },
+    { name = "nbconvert", specifier = ">=7.17.2" },
     { name = "nbformat" },
     { name = "pygments", specifier = ">=2.21.0" },
     { name = "pyperclip" },
     { name = "python-dotenv", specifier = ">=1.2.4" },
-    { name = "tornado", specifier = ">=6.5.10" },
+    { name = "tornado", specifier = ">=6.6" },
 ]
 
 [package.metadata.requires-dev]
