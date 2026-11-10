@@ -15,9 +15,9 @@ dependencies = [
   "pyperclip",
   "python-dotenv>=1.2.4",
   "nbformat",
-  "nbconvert>=7.17.1",
+  "nbconvert>=7.17.2",
   "pygments>=2.21.0",
-  "tornado>=6.5.10"
+  "tornado>=6.6"
 ]
 classifiers = [
   "Programming Language :: Python :: 3",
@@ -51,6 +51,6 @@ constraint-dependencies = [
 [dependency-groups]
 dev = [
   "pip-audit>=2.9.0",
-  "pytest>=9.1.1",
-  "ruff>=0.16.10",
+  "pytest>=9.2.0",
+  "ruff>=0.17.3",
 ]
