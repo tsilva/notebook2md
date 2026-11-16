@@ -1,3 +1,10 @@
+<!-- archive-repo:deprecation-notice:start -->
+> [!WARNING]
+> **Deprecated**
+>
+> This project is no longer maintained. Agents can now read Jupyter notebooks directly or use nbconvert, so a dedicated notebook-to-Markdown tool is no longer needed.
+<!-- archive-repo:deprecation-notice:end -->
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/tsilva/notebook2md/main/logo.png" alt="notebook2md" width="512"/>
   <br />
